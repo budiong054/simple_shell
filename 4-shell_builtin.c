@@ -15,19 +15,3 @@ void env(void)
 		i++;
 	}
 }
-
-void quite(void)
-{
-	_exit(0);
-}
-
-int main(void)
-{
-	if (1)
-	{
-		perror(getenv("PWD"));
-	}
-	env();
-	quite();
-	return (0);
-}
