@@ -11,10 +11,12 @@
 int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 {
 	char *line, **args;
-	int int_mode;
+	int int_mode, exit_flag;
+
+	exit_flag = 1;
 
 	signal(SIGINT, ctrl_c);
-	while (1)
+	while (exit_flag)
 	{
 		int_mode = isatty(STDIN_FILENO);
 		if (int_mode)
@@ -28,7 +30,15 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 			perror("Error 3");
 			exit(EXIT_FAILURE);
 		}
-		execute(args[0], args, NULL, argv[0]);
+		if (_strcmp(args[0], "env") == 0)
+			env();
+		else if (_strcmp(args[0], "exit") == 0)
+		{
+			exit_flag = 0;
+			quit();
+		}
+		else
+			execute(args[0], args, NULL, argv[0]);
 		free(args);
 		free(line);
 	}

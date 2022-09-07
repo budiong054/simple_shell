@@ -16,18 +16,14 @@ void env(void)
 	}
 }
 
-void quite(void)
-{
-	_exit(0);
-}
+/* remove this line*/
+/**
+ * quit - exit the shell
+ *
+ * Return: 0 Always successful
+ */
 
-int main(void)
+int quit(void)
 {
-	if (1)
-	{
-		perror(getenv("PWD"));
-	}
-	env();
-	quite();
 	return (0);
 }

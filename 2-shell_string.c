@@ -44,3 +44,31 @@ char *_strcat(char *dest, char *src)
 	dest[j] = '\0';
 	return (dest);
 }
+
+/* remove me please */
+
+/**
+ * _strcmp - compare two strings
+ * @s1: The first string
+ * @s2: The second string
+ *
+ * Return: 0 if they are equal, -1 if not equal
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0, len1, len2;
+
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+
+	if (len1 != len2)
+		return (-1);
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			return (-1);
+		i++;
+	}
+	return (0);
+}

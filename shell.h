@@ -27,6 +27,7 @@ int is_delim(char *delim, char c);
 /* shell_string functions */
 int _strlen(char *str);
 char *_strcat(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
 
 /* shell_utils function */
 char *_readline(void);
@@ -35,5 +36,6 @@ void execute(char *pathname, char *args[], char *envp[], char *argv);
 
 /* shell_builtin function */
 void env(void);
+int quit(void);
 
 #endif /* SHELL_H */
